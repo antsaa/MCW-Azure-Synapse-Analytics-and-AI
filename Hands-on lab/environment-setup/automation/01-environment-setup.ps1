@@ -1,7 +1,7 @@
+param($resourceGroupName=$false, $sqlPassword=$false, $suffix=$false)
 Import-Module ".\environment-automation"
-
 $InformationPreference = "Continue"
-
+<#
 $subs = Get-AzSubscription | Select-Object -ExpandProperty Name
 if($subs.GetType().IsArray -and $subs.length -gt 1){
         $subOptions = [System.Collections.ArrayList]::new()
@@ -14,12 +14,22 @@ if($subs.GetType().IsArray -and $subs.length -gt 1){
         Write-Information "Selecting the $selectedSubName subscription"
         Select-AzSubscription -SubscriptionName $selectedSubName
 }
-
+#>
 $userName = ((az ad signed-in-user show -o json) | ConvertFrom-JSON).UserPrincipalName
-$resourceGroupName = Read-Host -Prompt "Enter the name of the resource group containing the Azure Synapse Analytics Workspace"
-$sqlPassword = Read-Host -Prompt "Enter the SQL Administrator password you used in the deployment" -AsSecureString
-$sqlPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sqlPassword))
-$uniqueId = Read-Host -Prompt "Enter the unique suffix you used in the deployment"
+if(-not $resourceGroupName){
+        $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group containing the Azure Synapse Analytics Workspace"
+}
+
+if(-not $sqlPassword){
+        $sqlPassword = Read-Host -Prompt "Enter the SQL Administrator password you used in the deployment" -AsSecureString
+        $sqlPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sqlPassword))
+}
+if(-not $suffix){
+    $uniqueId = Read-Host -Prompt "Enter the unique suffix you used in the deployment"
+} else{
+    $uniqueId = $suffix;
+}
+
 
 $subscriptionId = (Get-AzContext).Subscription.Id
 $global:logindomain = (Get-AzContext).Tenant.Id
@@ -134,7 +144,17 @@ catch
 }
 
 
+
 $result
+
+try
+{
+    $result = Execute-SQLScriptFile-SqlCmd -SQLScriptsPath $sqlScriptsPath -WorkspaceName $workspaceName -SQLPoolName $sqlPoolName -SQLUserName $sqlUserName -SQLPassword $sqlPassword -FileName "01_sqlpool01_ml" -Parameters $params
+}
+catch 
+{
+    write-host $_.exception
+}
 
 Write-Information "Create linked service for SQL pool $($sqlPoolName) with user asa.sql.admin"
 
@@ -203,8 +223,8 @@ $publicDataUrl = "https://solliancepublicdata.blob.core.windows.net/"
 $dataLakeStorageUrl = "https://"+ $dataLakeAccountName + ".dfs.core.windows.net/"
 $dataLakeStorageBlobUrl = "https://"+ $dataLakeAccountName + ".blob.core.windows.net/"
 $dataLakeStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -AccountName $dataLakeAccountName)[0].Value
-$dataLakeContext = New-AzureStorageContext -StorageAccountName $dataLakeAccountName -StorageAccountKey $dataLakeStorageAccountKey
-$destinationSasKey = New-AzureStorageContainerSASToken -Container "wwi-02" -Context $dataLakeContext -Permission rwdl
+$dataLakeContext = New-AzStorageContext -StorageAccountName $dataLakeAccountName -StorageAccountKey $dataLakeStorageAccountKey
+$destinationSasKey = New-AzStorageContainerSASToken -Container "wwi-02" -Context $dataLakeContext -Permission rwdl
 
 Write-Information "Copying single files from the public data account..."
 $singleFiles = @{
