@@ -1,7 +1,8 @@
-$rgName = 'hsf-synapse-demo2'
+$rgName = 'hsf-synapse-demo3'
 $rg = new-azresourcegroup $rgName -location 'west europe'
 
-$suffix = 'hsf';
+#$suffix = 'hsfun12';
+$suffix = Read-Host -Prompt "Enter a unique suffix for your environment"
 $sqlPassword = Read-Host -Prompt "Enter the SQL Administrator password you used in the deployment" -AsSecureString
 # If you're lazy and don't like t
 #$sqlPassword = 'P@ssw0rd1234-/!!'|ConvertTo-SecureString -AsPlainText -force
