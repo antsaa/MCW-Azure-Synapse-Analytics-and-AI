@@ -30,8 +30,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 - [Azure Synapse Analytics and AI before the hands-on lab setup guide](#azure-synapse-analytics-and-ai-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Clone Github repo in Azure Cloud Shell](#Task 1: Clone Github repo in Azure Cloud Shell)
-    - [Task 2: Run environment setup PowerShell script](#task-5-run-environment-setup-powershell-script)
+    - [Task 1: Clone Github repo in Azure Cloud Shell](#task-1-clone-github-repo-in-azure-cloud-shell)
+    - [Task 2: Run environment setup PowerShell script](#task-2-run-environment-setup-powershell-script)
 
 <!-- /TOC -->
 
