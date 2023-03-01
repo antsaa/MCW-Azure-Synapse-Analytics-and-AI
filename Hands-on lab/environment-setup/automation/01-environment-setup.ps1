@@ -1,7 +1,7 @@
 param($resourceGroupName=$false, $sqlPassword=$false, $suffix=$false)
 Import-Module ".\environment-automation"
 $InformationPreference = "Continue"
-<#
+
 $subs = Get-AzSubscription | Select-Object -ExpandProperty Name
 if($subs.GetType().IsArray -and $subs.length -gt 1){
         $subOptions = [System.Collections.ArrayList]::new()
@@ -14,7 +14,7 @@ if($subs.GetType().IsArray -and $subs.length -gt 1){
         Write-Information "Selecting the $selectedSubName subscription"
         Select-AzSubscription -SubscriptionName $selectedSubName
 }
-#>
+
 $userName = ((az ad signed-in-user show -o json) | ConvertFrom-JSON).UserPrincipalName
 if(-not $resourceGroupName){
         $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group containing the Azure Synapse Analytics Workspace"
