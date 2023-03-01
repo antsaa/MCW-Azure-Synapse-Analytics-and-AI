@@ -65,16 +65,16 @@ $rg = new-azresourcegroup $rgName -location 'west europe'
 
 #Synapse SQL Pool Password
 ""
-Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "Note: Synapse SQL Pool Password requirements are as follows: "  -ForegroundColor Cyan
-Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "(1) Your password must be between 8 and 128 characters long." -ForegroundColor Brown
-Write-Host "(2) Your password must contain characters from three of the following categories: 
-                `nEnglish uppercase letters, 
-                `nEnglish lowercase letters, 
-                `nnumbers (0-9), 
-                `nand non-alphanumeric characters (!, $, #, %, etc.)." -ForegroundColor Brown
-Write-Host "(3) Your password cannot contain all or part of the login name. Part of a login name is defined as three or more consecutive alphanumeric characters." -ForegroundColor Brown
+Write-Host "================================================================" -ForegroundColor Yellow
+Write-Host "Note: Synapse SQL Pool Password requirements are as follows: "  -ForegroundColor Yellow
+Write-Host "================================================================" -ForegroundColor Yellow
+Write-Host "(1) Your password must be between 8 and 128 characters long." -ForegroundColor Yellow
+Write-Host "(2) Your password must contain characters from three of the following categories: " -ForegroundColor Yellow
+Write-Host "    (a) English uppercase letters," -ForegroundColor Yellow
+Write-Host "    (b) English lowercase letters," -ForegroundColor Yellow
+Write-Host "    (c) Numbers (0-9)," -ForegroundColor Yellow 
+Write-Host "    (d) Non-alphanumeric characters (!, $, #, %, etc.)." -ForegroundColor Yellow
+Write-Host "(3) Your password cannot contain all or part of the login name. Part of a login name is defined as three or more consecutive alphanumeric characters." -ForegroundColor Yellow
 ""
 $sqlPassword = Read-Host -Prompt " `nEnter the Synapse SQL Pool Administrator password, please remember the same for the Labs " -AsSecureString
 $sqlPassword1 = [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sqlPassword))
