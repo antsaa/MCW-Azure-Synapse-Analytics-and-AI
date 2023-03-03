@@ -161,7 +161,7 @@ catch
 {
     write-host $_.exception
 }
-
+""
 Write-Information "Create linked service for SQL pool $($sqlPoolName) with user asa.sql.admin"
 
 $linkedServiceName = $sqlPoolName.ToLower()
