@@ -73,7 +73,7 @@ When executing the script below, it is important to let the scripts run to compl
     cd './Synapse-MCW/Hands-on lab/environment-setup/automation'
     ```
 
-2. Execute the **01-environment-setup.ps1** script by executing the following command:
+2. Execute the **Setup-all.ps1** script to provision the resources and to set them up by executing the following command:
 
     ```PowerShell
     ./Setup-all.ps1
