@@ -124,16 +124,20 @@ $params = @{
         "DATALAKESTORAGEKEY" = $dataLakeAccountKey
         "DATALAKESTORAGEACCOUNTNAME" = $dataLakeAccountName
 }
+""
+Write-host "Script 1"
 
 try
 {
    $result = Execute-SQLScriptFile-SqlCmd -SQLScriptsPath $sqlScriptsPath -WorkspaceName $workspaceName -SQLPoolName "master" -SQLUserName $sqlUserName -SQLPassword $sqlPassword -FileName "00_master_setup" -Parameters $params
+   
 }
 catch 
 {
     write-host $_.exception
 }
-
+""
+Write-host "Script 2"
 try
 {
     $result = Execute-SQLScriptFile-SqlCmd -SQLScriptsPath $sqlScriptsPath -WorkspaceName $workspaceName -SQLPoolName $sqlPoolName -SQLUserName $sqlUserName -SQLPassword $sqlPassword -FileName "01_sqlpool01_mcw" -Parameters $params
@@ -147,6 +151,8 @@ catch
 
 $result
 
+""
+Write-host "Script 3"
 try
 {
     $result = Execute-SQLScriptFile-SqlCmd -SQLScriptsPath $sqlScriptsPath -WorkspaceName $workspaceName -SQLPoolName $sqlPoolName -SQLUserName $sqlUserName -SQLPassword $sqlPassword -FileName "02_sqlpool01_ml" -Parameters $params
