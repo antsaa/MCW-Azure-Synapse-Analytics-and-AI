@@ -44,7 +44,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Before the hands-on lab
 
-**Duration**: 30 minutes
+**Duration**: 40 minutes
 
 ### Task 1: Clone Github repo in Azure Cloud Shell
 

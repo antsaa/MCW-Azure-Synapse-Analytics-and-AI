@@ -87,11 +87,16 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-In this hands-on-lab, you will build an end-to-end data analytics with machine learning solution using Azure Synapse Analytics. The information will be presented in the context of a retail scenario. We will be heavily leveraging Azure Synapse Studio, a tool that conveniently unifies the most common data operations from ingestion, transformation, querying, and visualization.
+In this hands-on-lab, you will explore a data analytics solution using Azure Synapse Analytics. The information will be presented in the context of a retail scenario. We will be heavily leveraging Azure Synapse Studio, a tool that conveniently unifies the most common data operations from ingestion, transformation, querying, and visualization.
 
 ## Overview
 
-In this lab various features of Azure Synapse Analytics will be explored. Azure Synapse Analytics Studio is a single tool that every team member can use collaboratively. Synapse Studio will be the only tool used throughout this lab through data ingestion, cleaning, and transforming raw files to using Notebooks to train, register, and consume a Machine learning model. The lab will also provide hands-on-experience monitoring and prioritizing data related workloads.
+Azure Synapse Analytics Studio is a single tool that every team member can use collaboratively. Synapse Studio can be the only tool used throughout this lab through data ingestion, cleaning, and transforming raw files to using Notebooks to train, register, and consume a Machine learning model. In this lab a few of the many features of Azure Synapse Analytics will be explored:
+  1.Dedicated SQL Pool
+  2.Serverless SQL Pool
+  3.Synapse Pipelines & integrations
+  4.Synapse Spark (if we have time)
+
 
 ## Solution architecture
 
@@ -105,21 +110,7 @@ This lab explores the cold data scenario of ingesting various types of raw data 
 
 2. Azure Synapse Workspace / Studio
 
-3. [Python v.3.7 or newer](https://www.python.org/downloads/)
-
-4. [PIP](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip)
-
-5. [Visual Studio Code](https://code.visualstudio.com/)
-
-6. [Python Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-
-7. [Azure Function Core Tools v.3](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#v2)
-
-8. [Azure Functions Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-
-9. [Postman](https://www.postman.com/downloads/)
-
-10. [Ensure the Microsoft.Sql resource provider is registered in your Azure Subscription](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+3. [Ensure the Microsoft.Sql resource provider is registered in your Azure Subscription](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
 
 ## Before the hands-on lab
 
@@ -133,7 +124,7 @@ For the remainder of this lab, the following terms will be used for various ASA 
 |-----------------------------------|------------------------------------------------------------------------------------|
 | Azure Subscription                | `WorkspaceSubscription`                                                            |
 | Azure Region                      | `WorkspaceRegion`                                                                  |
-| Workspace resource group          | `WorkspaceResourceGroup`                                                           |
+| Workspace resource group          | `RGSynapseLab{suffix}`                                                           |
 | Workspace / workspace name        | `asaworkspace{suffix}`                                                             |
 | Primary Storage Account           | `asadatalake{suffix}`                                                              |
 | Default file system container     | `DefaultFileSystem`                                                                |
