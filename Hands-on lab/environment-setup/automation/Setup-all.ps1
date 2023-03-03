@@ -83,8 +83,8 @@ Write-Host "====================================================" -ForegroundCol
 Write-Host "DEPLOYING RESOURCES IN AZURE....PLEASE BE PATIENT... "  -ForegroundColor Cyan
 Write-Host "====================================================" -ForegroundColor Cyan
 ""
-[int]$startMs = (Get-Date).Millisecond
-Write-Host "Start Time : "$startMs
+$starttime = (Get-Date)
+Write-Host "Start Time : "$starttime
 
 $uri = 'https://raw.githubusercontent.com/dibakardharchoudhury/MCW-Azure-Synapse-Analytics-and-AI/main/Hands-on%20lab/environment-setup/automation/00-asa-workspace-core.json'
 #$deployment = New-AzResourceGroupDeployment -ResourceGroupName $rg.ResourceGroupName -TemplateUri $uri -uniqueSuffix $suffix -sqlAdministratorLoginPassword $sqlPassword
@@ -101,7 +101,8 @@ Write-Host "================================================================" -F
 
 ""
 # Calculate elapsed time
-[int]$endMs = (Get-Date).Millisecond
-Write-Host "Start Time : "$startMs
+$endtime = (Get-Date)
+Write-Host "End Time : "$endtime
+$durationMins = ($endtime - $starttime).Minutes
 ""
-Write-Host "Duration to run the script: "$($startMs - $endMs)
+Write-Host "Duration (minutes) to run the script: "$durationMins
