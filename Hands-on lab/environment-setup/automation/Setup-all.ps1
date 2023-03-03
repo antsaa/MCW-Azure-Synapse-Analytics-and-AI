@@ -52,8 +52,6 @@ if ($decision -eq 0) {
 clear
 
 
-
-
 #Create Resource Group in Azure
 #$suffix = 'didharch1983';
 $suffix = Read-Host -Prompt " `nPlease enter an unique suffix for your environment "
@@ -84,7 +82,9 @@ $sqlPassword1 = [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System
 Write-Host "====================================================" -ForegroundColor Cyan
 Write-Host "DEPLOYING RESOURCES IN AZURE....PLEASE BE PATIENT... "  -ForegroundColor Cyan
 Write-Host "====================================================" -ForegroundColor Cyan
-
+""
+[int]$startMs = (Get-Date).Millisecond
+Write-Host "Start Time : "$startMs
 
 $uri = 'https://raw.githubusercontent.com/dibakardharchoudhury/MCW-Azure-Synapse-Analytics-and-AI/main/Hands-on%20lab/environment-setup/automation/00-asa-workspace-core.json'
 #$deployment = New-AzResourceGroupDeployment -ResourceGroupName $rg.ResourceGroupName -TemplateUri $uri -uniqueSuffix $suffix -sqlAdministratorLoginPassword $sqlPassword
@@ -99,3 +99,9 @@ Write-Host "================================================================" -F
 
 ./01-environment-setup.ps1 -resourceGroupName $rg.ResourceGroupName -SQLPassword $sqlPassword1 -suffix $suffix
 
+""
+# Calculate elapsed time
+[int]$endMs = (Get-Date).Millisecond
+Write-Host "Start Time : "$startMs
+""
+Write-Host "Duration to run the script: "$($startMs - $endMs)
