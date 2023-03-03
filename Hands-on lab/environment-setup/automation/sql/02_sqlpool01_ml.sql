@@ -5,15 +5,21 @@ IF NOT EXISTS (SELECT * FROM sys.database_credentials WHERE name = 'StorageCrede
 	CREATE DATABASE SCOPED CREDENTIAL StorageCredential WITH 
 	IDENTITY = 'SHARED ACCESS SIGNATURE',
 	SECRET = '#DATALAKESTORAGEKEY#' 
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.database_credentials WHERE name = 'WorkspaceIdentity') 
+    CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH 
+    IDENTITY = 'Managed Identity'  
+GO
 
 
 IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'ASAMCWModelStorage') 
 	CREATE EXTERNAL DATA SOURCE [ASAMCWModelStorage] 
 	WITH (
 		LOCATION = 'abfss://wwi-02@#DATALAKESTORAGEACCOUNTNAME#.dfs.core.windows.net', 
-		TYPE = HADOOP 
+		CREDENTIAL =  WorkspaceIdentity
 	)
-
+GO
 
 IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'csv') 
 CREATE EXTERNAL FILE FORMAT csv WITH (
@@ -25,8 +31,9 @@ CREATE EXTERNAL FILE FORMAT csv WITH (
         USE_TYPE_DEFAULT = False
     )
 ) 
+GO
 
-
+/*
 CREATE EXTERNAL TABLE [wwi_mcw].[ASAMCWMLModelExt]([Model] [varbinary](max) NULL) WITH(
     LOCATION = 'ml/onnx-hex',
 	DATA_SOURCE = [ASAMCWModelStorage],
@@ -42,3 +49,4 @@ CREATE TABLE [wwi_mcw].[ASAMCWMLModel](
     [Description] [varchar](200) NULL
 ) WITH(DISTRIBUTION = REPLICATE, HEAP)
 
+*/
