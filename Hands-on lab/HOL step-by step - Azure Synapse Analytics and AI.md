@@ -72,10 +72,11 @@ In this hands-on-lab, you will explore a data analytics solution using Azure Syn
 ## Overview
 
 Azure Synapse Analytics Studio is a single tool that every team member can use collaboratively. Synapse Studio can be the only tool used throughout this lab through data ingestion, cleaning, and transforming raw files to using Notebooks to train, register, and consume a Machine learning model. In this lab a few of the many features of Azure Synapse Analytics will be explored:
-  1.Dedicated SQL Pool
-  2.Serverless SQL Pool
-  3.Synapse Pipelines & integrations
-  4.Synapse Spark (if we have time)
+
+    1.Dedicated SQL Pool
+    2.Serverless SQL Pool
+    3.Synapse Pipelines & integrations
+    4.Synapse Spark (if we have time)
 
 
 ## Solution architecture
