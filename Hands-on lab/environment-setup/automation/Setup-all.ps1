@@ -100,6 +100,7 @@ Write-Host "================================================================" -F
 ./01-environment-setup.ps1 -resourceGroupName $rg.ResourceGroupName -SQLPassword $sqlPassword1 -suffix $suffix
 
 ""
+""
 # Calculate elapsed time
 $endtime = (Get-Date)
 Write-Host "End Time : "$endtime
