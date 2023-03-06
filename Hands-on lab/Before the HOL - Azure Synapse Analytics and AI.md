@@ -48,20 +48,22 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ### Task 1: Clone Github repo in Azure Cloud Shell
 
-1. In the Azure Portal, open the Azure Cloud Shell by selecting its icon from the right side of the top toolbar. Be sure to select **PowerShell** as the shell type.
+1. Log into the [Azure Portal](https://portal.azure.com).
+
+2. In the Azure Portal, open the Azure Cloud Shell by selecting its icon from the right side of the top toolbar. Be sure to select **PowerShell** as the shell type.
 
     ![A portion of the Azure Portal taskbar is displayed with the Cloud Shell icon highlighted.](media/bhol_azurecloudshellmenu.png "Opening the Cloud Shell")
 
     > **Note**: If you are prompted to create a storage account for the Cloud Shell, agree to have it created.
 
-2. In the Cloud Shell window, enter the following command to clone the repository files.
+3. In the Cloud Shell window, enter the following command to clone the repository files.
 
     ```PowerShell
     git clone https://github.com/dibakardharchoudhury/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
     ```
 
 
-3. Keep the Cloud Shell open.
+4. Keep the Cloud Shell open.
 
 ### Task 2: Run environment setup PowerShell script
 
