@@ -1457,7 +1457,7 @@ Users should avoid a workload management solution that configures 100% workload 
         )
         --- Creates a workload Classifier 'CEODreamDemo'.
         Create Workload Classifier CEODreamDemo with
-        (Workload_Group ='CEODemo',MemberName='asa.sql.workload02',IMPORTANCE = BELOW_NORMAL);
+        (Workload_Group ='CEODemo',MemberName='asa.sql.workload02');
     END
     ```
 
