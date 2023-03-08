@@ -1,7 +1,7 @@
 ![Microsoft Cloud Workshop](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/main/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
-Azure Synapse Analytics and AI
+Azure Synapse Analytics
 </div>
 
 <div class="MCWHeader2">
@@ -27,7 +27,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [Azure Synapse Analytics and AI before the hands-on lab setup guide](#azure-synapse-analytics-and-ai-before-the-hands-on-lab-setup-guide)
+- [Azure Synapse Analytics before the hands-on lab setup guide](#azure-synapse-analytics-before-the-hands-on-lab-setup-guide)
   - [Requirements](#requirements)
   - [Before the hands-on lab](#before-the-hands-on-lab)
     - [Task 1: Clone Github repo in Azure Cloud Shell](#task-1-clone-github-repo-in-azure-cloud-shell)
@@ -35,7 +35,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- /TOC -->
 
-# Azure Synapse Analytics and AI before the hands-on lab setup guide
+# Azure Synapse Analytics before the hands-on lab setup guide
 
 ## Requirements
 
