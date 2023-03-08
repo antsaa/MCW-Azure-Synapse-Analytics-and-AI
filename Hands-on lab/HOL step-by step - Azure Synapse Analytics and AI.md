@@ -75,7 +75,7 @@ Azure Synapse Analytics Studio is a single tool that every team member can use c
 
     1.Dedicated SQL Pool
     2.Serverless SQL Pool
-    3.Synapse Pipelines & integrations
+    3.Synapse Pipelines
     4.Synapse Spark (if we have time)
 
 
