@@ -1608,13 +1608,9 @@ All logins to your data warehouse are logged to `sys.dm_pdw_exec_sessions`. This
 
 ### Task 1: Delete the resource group
 
-1. In the Azure Portal, open the resource group for this lab. Select **Delete** from the top toolbar menu. Repeat this process for the resource group created with the Azure Function deployment.
+1. In the Azure Portal, open the resource group for this lab. Select **Delete resource group** from the top toolbar menu.
 
-2. In the Azure Portal, open the resource group with the same name as your Function App. Select **Delete** from the top toolbar menu.
-
-3. In the Azure Portal, open the resource group you created in the Purview exercise, select **Delete** from the top toolbar menu.
-
-4. Open the Cloud Shell and issue the following command to remove the lab files:
+2. Open the Cloud Shell and issue the following command to remove the lab files:
 
    ```PowerShell
    Remove-Item -Path .\Synapse-MCW -recurse -force  
