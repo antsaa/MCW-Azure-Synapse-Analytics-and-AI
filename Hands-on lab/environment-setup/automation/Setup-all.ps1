@@ -86,7 +86,7 @@ Write-Host "====================================================" -ForegroundCol
 $starttime = (Get-Date)
 Write-Host "Start Time : "$starttime
 
-$uri = 'https://raw.githubusercontent.com/dibakardharchoudhury/MCW-Azure-Synapse-Analytics-and-AI/main/Hands-on%20lab/environment-setup/automation/00-asa-workspace-core.json'
+$uri = 'https://raw.githubusercontent.com/antsaa/MCW-Azure-Synapse-Analytics-and-AI/main/Hands-on%20lab/environment-setup/automation/00-asa-workspace-core.json'
 #$deployment = New-AzResourceGroupDeployment -ResourceGroupName $rg.ResourceGroupName -TemplateUri $uri -uniqueSuffix $suffix -sqlAdministratorLoginPassword $sqlPassword
 New-AzResourceGroupDeployment -ResourceGroupName $rg.ResourceGroupName -TemplateUri $uri -uniqueSuffix $suffix -sqlAdministratorLoginPassword $sqlPassword
 
