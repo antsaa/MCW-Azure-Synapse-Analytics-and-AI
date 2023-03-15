@@ -59,7 +59,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 3. In the Cloud Shell window, enter the following command to clone the repository files.
 
     ```PowerShell
-    git clone https://github.com/dibakardharchoudhury/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
+    git clone https://github.com/antsaa/MCW-Azure-Synapse-Analytics-and-AI.git Synapse-MCW
     ```
 
 
