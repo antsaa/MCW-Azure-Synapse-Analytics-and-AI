@@ -116,6 +116,8 @@
       "properties": {
         "accessTier": "Hot",
         "supportsHttpsTrafficOnly": "true",
+        "allowBlobPublicAccess": false,
+        "minimumTlsVersion": "TLS1_2"
         "isHnsEnabled": "true",
         "largeFileSharesState": "Disabled"
       },
